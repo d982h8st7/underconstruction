@@ -7,7 +7,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-        /* 이서윤체 폰트 적용을 위한 코드 */
         @font-face {
             font-family: "LeeSeoyun";
             src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff") format("woff");
@@ -19,9 +18,7 @@
             font-family: "LeeSeoYun";
             margin: 0;
             display: flex;
-            /*flexable 하게*/
             justify-content: center;
-            /*하지만 정렬은 중앙으로 */
             background-image: url("http://drive.google.com/uc?export=view&id=1vm1xFtPs1r7jPTddHevSCjq0H9xFKkxH");
             background-size: cover;
             background-repeat: no-repeats;
@@ -31,7 +28,6 @@
             width: 600px;
             background-color: #fb8654;
             height: 100%;
-            /*container의 높이가 body의 높이만큼 차지한다*/
 
         }
 
@@ -74,6 +70,29 @@
 
         }
 
+        #image2 {
+            background-image: url(http://drive.google.com/uc?export=view&id=1P2geZfQ8oCEDA4pT6mivYICnN_mhjdVi);
+            background-position-y: center;
+            background-position-x: center;
+            background-size: cover;
+
+        }
+
+        #image3 {
+            background-image: url(http://drive.google.com/uc?export=view&id=1P7KQN1_Y9im4R5DvXTkvvlGOAuIjPCE9);
+            background-position-y: center;
+            background-position-x: center;
+            background-size: cover;
+        }
+
+        #image4 {
+            background-image: url(http://drive.google.com/uc?export=view&id=1jaqE1Zy6I7MrGD-QscfDVROktMDcpNrP);
+            background-position-y: center;
+            background-position-x: center;
+            background-size: cover;
+            background-size: 125%;
+        }
+
         .photo_description {
             color: white;
             background-color: black;
@@ -85,23 +104,85 @@
             bottom: 0;
             transform: translate(-50%);
             left: 50%;
+            opacity: 0;
 
         }
+
+        .showText {
+            opacity: 1;
+            transition: opacity 0.5s linear;
+        }
+
+        .hideText {
+            opacity: 0;
+        }
     </style>
+    <script>
+        function showText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("hideText");
+                document.querySelector("#desc1").classList.add("showText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("hideText");
+                document.querySelector("#desc2").classList.add("showText");
+            } else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("hideText");
+                document.querySelector("#desc3").classList.add("showText");
+            } else{
+                document.querySelector("#desc4").classList.remove("hideText");
+                document.querySelector("#desc4").classList.add("showText");}
+        }
+
+        function hideText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("showText");
+                document.querySelector("#desc1").classList.add("hideText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("showText");
+                document.querySelector("#desc2").classList.add("hideText");
+            } else if (number === 3){
+                document.querySelector("#desc3").classList.remove("showText");
+                document.querySelector("#desc3").classList.add("hideText");
+            }else {
+                document.querySelector("#desc4").classList.remove("showText");
+                document.querySelector("#desc4").classList.add("hideText");
+            }
+        
+        }
+
+        function alertText(number) {
+            alert(`${number}번째 추억이에요! 눌러주셔서 감사합니다 :)`);
+        }
+    </script>
 </head>
 
 <body>
     <div class="container">
         <div class="photos">
-            <a href="https://www.acmicpc.net/user/rlatjdals104" target="_blank"><div id="image1" class="photo-frame"><span id="desc1" class="photo_description">파이썬 원툴</span></div></a>
-            <div id="image2" class="photo-frame"><span id="desc2" class="photo_description">2 이미지 설명</span></div>
-            <div id="image3" class="photo-frame"><span id="desc3" class="photo_description">3 이미지 설명</span></div>
-            <div id="image4" class="photo-frame"><span id="desc4" class="photo_description">4 이미지 설명</span></div>
+            <a href="https://www.acmicpc.net/user/rlatjdals104" target="_blank">
+                <div id="image1" class="photo-frame" onmouseover="showText(1)" onmouseout="hideText(1)"
+                    onclick="alertText(1)"><span id="desc1" class="photo_description">파이썬 원툴의 발자취</span></div>
+            </a>
+            <div id="image2" class="photo-frame" onmouseover="showText(2)" onmouseout="hideText(2)"
+                onclick="alertText(2)"><span id="desc2" class="photo_description">벚꽃</span></div>
+            <div id="image3" class="photo-frame" onmouseover="showText(3)" onmouseout="hideText(3)"
+                onclick="alertText(3)"><span id="desc3" class="photo_description">전역</span></div>
+            <a href="https://github.com/d982h8st7/underconstruction/blob/main/web"><div id="image4" class="photo-frame" 
+            onmouseover="showText(4)"
+            onmouseout="hideText(4)"
+            onclick="alertText(4)"><span id="desc4" class="photo_description">이 웹페이지를 만드는 과정</span></div></a>
         </div>
         <div class="footer">
             <p class="f-title">Endeavor to Full stack Engineer</p>
             <p class="f-title" title="역경을 딛고 별이 되어">Per aspera ad astra</p>
             <p class="f-date">2023.03.26</p>
+            <p class="f-date"><a href="https://github.com/d982h8st7"><img
+                        src="http://drive.google.com/uc?export=view&id=1fNPUKe82cptFZF8iSGe0wlvIk9foFG-R"
+                        style="width: 10%; margin-left : 40%"></a>
+                <a href="https://www.instagram.com/sin_nar_ver/"><img
+                        src="http://drive.google.com/uc?export=view&id=1pIBi0iPOtNVd1mcsP1ZzGATa5G1k-Zyp"
+                        style="width:12%;margin: left 10px;"></a>
+            </p>
         </div>
     </div>
     </div>
